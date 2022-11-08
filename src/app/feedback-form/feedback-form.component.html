@@ -1,0 +1,101 @@
+<div class="container " style="width: 40%;">
+
+    <div [hidden]="submitted" style="margin-top: 30px;">
+        <h1>Feedback for {{interview.title}} interview </h1>
+        <h1>(Level {{interview.level}})</h1>
+        <form (ngSubmit)="onSubmit()" #feedbackForm="ngForm">
+
+            <div class="form-group">
+                <label for="disabled" class="form-label">Candidate Name</label><br>
+                <input name="disabled" class="form-control" [value]="candidate.name" disabled>
+            </div>
+
+            <div class="form-group">
+                <label for="disabled" class="form-label">Candidate ID</label><br>
+                <input name="disabled" class="form-control" [value]="'LTI' + candidate.candidateId" disabled>
+            </div>
+
+            <div class="form-group">
+                <label for="disabled" class="form-label">Candidate Mail ID</label><br>
+                <input name="disabled" class="form-control" [value]="candidate.email" disabled>
+            </div>
+
+            <div class="form-group">
+                <label for="name">Comments</label>
+                <textarea type="textbox" style="height: 100px;" class="form-control" id="comment"
+                    placeholder="Write your comments here..." required [(ngModel)]="model.comment" name="comment"
+                    #comment="ngModel"> </textarea>
+                <div [hidden]="comment.valid || comment.pristine" class="alert alert-danger">
+                    Comments are required
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Rating: {{model.rating}}</label>
+                <div class="rating-css">
+                    <input type="radio" value="1" id="rating1-1" name="rating1"
+                        (change)="onItemChange($event.target.value)" checked>
+                    <label for="rating1-1" class="fa fa-star"></label>
+                    <input type="radio" value="2" id="rating1-2" name="rating1"
+                        (change)="onItemChange($event.target.value)">
+                    <label for="rating1-2" class="fa fa-star"></label>
+                    <input type="radio" value="3" id="rating1-3" name="rating1"
+                        (change)="onItemChange($event.target.value)">
+                    <label for="rating1-3" class="fa fa-star"></label>
+                    <input type="radio" value="4" id="rating1-4" name="rating1"
+                        (change)="onItemChange($event.target.value)">
+                    <label for="rating1-4" class="fa fa-star"></label>
+                    <input type="radio" value="5" id="rating1-5" name="rating1"
+                        (change)="onItemChange($event.target.value)">
+                    <label for="rating1-5" class="fa fa-star"></label>
+                    <input type="radio" value="6" id="rating1-6" name="rating1"
+                        (change)="onItemChange($event.target.value)">
+                    <label for="rating1-6" class="fa fa-star"></label>
+                    <input type="radio" value="7" id="rating1-7" name="rating1"
+                        (change)="onItemChange($event.target.value)">
+                    <label for="rating1-7" class="fa fa-star"></label>
+                    <input type="radio" value="8" id="rating1-8" name="rating1"
+                        (change)="onItemChange($event.target.value)">
+                    <label for="rating1-8" class="fa fa-star"></label>
+                    <input type="radio" value="9" id="rating1-9" name="rating1"
+                        (change)="onItemChange($event.target.value)">
+                    <label for="rating1-9" class="fa fa-star"></label>
+                    <input type="radio" value="10" id="rating1-10" name="rating1"
+                        (change)="onItemChange($event.target.value)">
+                    <label for="rating1-10" class="fa fa-star"></label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <select #status (change)="onSelected(status.value)" class="form-select"
+                    aria-label="Default select example">
+                    <option selected>Choose the status of the candidate: </option>
+                    <option value="Passed">Passed</option>
+                    <option value="Failed">Failed</option>
+                </select>
+            </div>
+
+            <div class="form-group" style="margin-top: 25px; padding: 5px;">
+                <button class="btn btn-primary" type="submit">Submit Form</button>
+            </div>
+
+
+        </form>
+
+    </div>
+
+</div>
+
+<div class="container" style="vertical-align: auto;">
+    <div class="main-content" [hidden]="!submitted">
+        <h1 class="site-header__title" data-lead-id="site-header-title">THANK YOU!</h1>
+        <i class="fa fa-check main-content__checkmark" id="checkmark"></i>
+        <p class="main-content__body" data-lead-id="main-content-body">Thanks a bunch for filling that out. It means a
+            lot
+            to us, just like you do! We really appreciate you giving us a moment of your time today. Thanks for being
+            you.
+        </p>
+    </div>
+</div>
+
+<button (click)="showResume()">Resume</button>

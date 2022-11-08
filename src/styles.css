@@ -1,0 +1,72 @@
+/* You can add global styles to this file, and also import other style files */
+* {
+    font-size: large;
+}
+
+.form-group {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.btn-check {
+    padding: 30px 150px;
+    overflow: hidden;
+    /* for clearfix */
+}
+
+.container {
+    /* display: flex;
+    align-items: center; */
+}
+
+#Passed,
+#Failed {
+    display: block;
+}
+
+
+.rating-css {
+    cursor: pointer;
+    height: 30px;
+    font-size: 0;
+    margin-bottom: 15px;
+}
+
+.rating-css input {
+    display: none;
+}
+
+.rating-css input+label {
+    display: inline-block;
+    width: 30px;
+    line-height: 30px;
+    text-align: center;
+    font-size: 24px;
+    color: #FFC107;
+    text-shadow: 1px 1px 0 #000;
+    cursor: pointer;
+}
+
+.rating-css input+label.fa-heart {
+    color: #ee2351;
+}
+
+.rating-css input:checked+label~label {
+    color: #555;
+}
+
+/* --------------------------------- */
+/* RATING CSS HOVER EFFECT */
+/* --------------------------------- */
+
+.rating-css.hover-effect input:checked+label~label {
+    opacity: 0.5;
+}
+
+.rating-css.hover-effect:hover input+label~label {
+    opacity: 1;
+}
+
+.rating-css.hover-effect:hover input:hover+label~label {
+    opacity: 0.5;
+}
